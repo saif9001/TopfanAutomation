@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [RedhuAutomationFrameWork]">
+  <listeners>
+    <listener class-name="com.redhu.FailTestCase.FailTestCaseHandling"/>
+    <listener class-name="com.redhu.ExtentReporting.ExtentReporterNG"/>
+  </listeners>
+  <test thread-count="5" name="TakeAClassTest(failed)">
+    <classes>
+      <class name="com.TestAppsaif.TestCases.ForumScreenTest">
+        <methods>
+          <include name="uploadimagevalidate"/>
+          <include name="Validatelikfunctionalityonforum"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.TestAppsaif.TestCases.ForumScreenTest -->
+    </classes>
+  </test> <!-- TakeAClassTest(failed) -->
+</suite> <!-- Failed suite [RedhuAutomationFrameWork] -->
