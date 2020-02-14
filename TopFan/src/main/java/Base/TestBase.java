@@ -24,7 +24,7 @@ public class TestBase {
 	public TestBase() throws IOException {
 		prop = new Properties();
 		FileInputStream ip = new FileInputStream(
-				"/Users/kiwitech/Documents/New Automation copy/Automation copy/src/main/java/com/TakeAClass/qa/config/Config.properties");
+				"/Users/kiwitech/git/TopFan/TopFan/src/main/java/com/TakeAClass/qa/config/Config.properties");
 		prop.load(ip);
 		
 		///Users/kiwitech/Downloads/AutomationFramework-Sprint1/src/main/java/com/TakeAClass/qa/config/Config.properties
@@ -36,6 +36,7 @@ public class TestBase {
 		if (browserName.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", "/Users/kiwitech/Downloads/chromedriver");
 			driver = new ChromeDriver();
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		} else if (browserName.equalsIgnoreCase("FF")) {
 
 			System.setProperty("webdriver.gecko.driver", "/Users/kiwitech/Downloads/geckodriver");

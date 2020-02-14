@@ -3,13 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestNGTestCases.ValidateRegisterPageTest">
+      <class name="TestNGTestCases.ForumScreenTest">
         <methods>
           <include name="clean"/>
-          <include name="validateregistrationofuser"/>
+          <include name="createpostvalidate"/>
           <include name="setup"/>
+          <include name="uploadimagevalidate"/>
         </methods>
-      </class> <!-- TestNGTestCases.ValidateRegisterPageTest -->
+      </class> <!-- TestNGTestCases.ForumScreenTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

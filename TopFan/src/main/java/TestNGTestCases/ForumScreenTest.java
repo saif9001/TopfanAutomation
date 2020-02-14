@@ -185,7 +185,7 @@ public class ForumScreenTest extends TestBase  {
 		}
 
 	
-	@Test(dataProvider="getdata",enabled=true)
+	@Test(dataProvider="getdata",enabled=false)
 	
 	
 	 public void userlogin(String username1,String userpassword1) throws InterruptedException{
@@ -212,7 +212,7 @@ public class ForumScreenTest extends TestBase  {
    
    
    
-   @Test(enabled=false)
+   @Test(priority=0)
   public void createpostvalidate() throws Exception {
 	   
 	 //  String testdatatopick="Invalid Credential";
@@ -227,15 +227,17 @@ public class ForumScreenTest extends TestBase  {
 	  
 	  driver.get("https://topfan-web-production.herokuapp.com/");
 	  
-	  Thread.sleep(3000);
+	//  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	  
+	//  Thread.sleep(3000);
 	  
 	  
 	 
 	  loginobj.userlogin(prop.getProperty("usernametestapp"),prop.getProperty("userpasswordtestapp"));
 	  
-	  Thread.sleep(30000);
+	//  Thread.sleep(30000);
 	  
-	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	 // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	  
 	  forumobj.forum.click();
 	  parent=driver.getWindowHandle();
@@ -254,9 +256,22 @@ public class ForumScreenTest extends TestBase  {
 			 }
 		
    }
-   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-   Thread.sleep(9000);
-         forumobj.placeholder.click();
+   //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+ //  Thread.sleep(9000);
+   
+ //  WebDriverWait wait = new WebDriverWait(driver, 30);
+	  
+ //  WebElement element = wait1
+	//		.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Forum']")));
+   
+  
+
+   WebDriverWait wait2 = new WebDriverWait(driver, 30);
+   WebElement element2=wait2.until(ExpectedConditions.visibilityOf(forumobj.placeholder));
+   
+   
+   
+       forumobj.placeholder.click();
     
        String parent=driver.getWindowHandle();
       
@@ -297,7 +312,7 @@ public class ForumScreenTest extends TestBase  {
         driver.switchTo().window(parent);
           
          
-          driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+         // driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
           
                           
           forumobj.postlink.click();
@@ -335,7 +350,7 @@ public class ForumScreenTest extends TestBase  {
         String id=driver.findElement(By.id("1004238")).getAttribute("1004238");
   
       
-     Thread.sleep(3000);
+     //Thread.sleep(3000);
          
        AssertJUnit.assertEquals(expectedtextpostedbyuser,actualtextpostedbyuser);
            
@@ -386,11 +401,11 @@ public class ForumScreenTest extends TestBase  {
 		  
 		  driver.get(testappproductionurl);
 		  
-		  Thread.sleep(6000);
+		 // Thread.sleep(6000);
 		  
 		  loginobj.userlogin(prop.getProperty("usernametestapp"),prop.getProperty("userpasswordtestapp"));
 		  
-		  Thread.sleep(7000);
+		//  Thread.sleep(7000);
 		  
 		  //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		  
@@ -553,7 +568,7 @@ public class ForumScreenTest extends TestBase  {
         		}
         	}*/
            
-           @Test(enabled=false)
+           @Test(priority=3)
            
            public void Validatelikfunctionalityonforum() throws Exception{
         	   System.out.println("Beak Point");
@@ -735,7 +750,6 @@ public class ForumScreenTest extends TestBase  {
    		  
    		  
    		
-   		
    		  
    		
               
@@ -756,7 +770,7 @@ public class ForumScreenTest extends TestBase  {
            
            @AfterMethod
            public void clean(){
-         //	 driver.close();
+        	 driver.quit();
          	  
          	  
            }
